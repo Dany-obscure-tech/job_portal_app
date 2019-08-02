@@ -9,15 +9,15 @@
         android:background="@drawable/job_category_icon_button"
         android:layout_height="wrap_content" />
 
-    <TextView
+    <com.daniyalfarid.jobportal.Fonts.SegoeUI
         android:id="@+id/jobCategoryTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:textSize="16sp"
-        android:textColor="@android:color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Hello"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/jobCategoryIcon"

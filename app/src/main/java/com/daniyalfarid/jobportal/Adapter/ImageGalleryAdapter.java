@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.daniyalfarid.jobportal.ImageDisplayActivity;
 import com.daniyalfarid.jobportal.R;
@@ -18,7 +19,6 @@ import com.daniyalfarid.jobportal.TestAvtivity;
 public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapter.ImageGalleryViewHolder>{
 
     private int[] pics;
-    private Dialog myDialog;
 
 
 
@@ -68,9 +68,11 @@ public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapte
 
     public class ImageGalleryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView _pics;
+        ImageView _imageFrame;
         public ImageGalleryViewHolder(@NonNull View itemView) {
             super(itemView);
             itemView.findViewById(R.id.thirdActivityImage).setOnClickListener(this);
+            _imageFrame = itemView.findViewById(R.id.imageFrame);
 
 
 
@@ -82,8 +84,11 @@ public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapte
 
         @Override
         public void onClick(View v) {
-           Intent intent = new Intent(context, ImageDisplayActivity.class);
-           context.startActivity(intent);
+//           Intent intent = new Intent(context, ImageDisplayActivity.class);
+            Toast.makeText(context,_pics.getDrawable().toString(),Toast.LENGTH_LONG).show();
+//           context.startActivity(intent);
+
+//            _imageFrame.setImageDrawable(_pics.getDrawable());
 
         }
 
