@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThirdActivity">
+
+    <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
+        android:id="@+id/thirdActivityMainTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="25dp"
+        android:text="@string/secondActivityMainTitle"
+        android:textSize="35sp" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="113dp"
+        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+
+            <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
+                android:id="@+id/thirdActivityTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="7.5dp"
+                android:text="@string/thirdActivityDescHeading"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+
+            <com.daniyalfarid.jobportal.Fonts.SegoeUI
+                android:layout_marginBottom="30dp"
+                android:id="@+id/thirdActivityDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/thirdActivityDescription"
+                android:textSize="16sp" />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_below="@+id/thirdActivityDescription"
+                android:id="@+id/imageGallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageButton
+                android:id="@+id/applyBtn"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="25dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:background="#00000000"
+                android:src="@drawable/apply_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

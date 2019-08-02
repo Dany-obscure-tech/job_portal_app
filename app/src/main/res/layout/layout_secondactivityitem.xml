@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="5dp">
+
+    <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
+
+        android:id="@+id/secondActivityTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7.5dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/secondActivityTitle"
+        android:textSize="23sp"
+        android:textStyle="bold" />
+
+    <com.daniyalfarid.jobportal.Fonts.SegoeUI
+        android:id="@+id/secondActivityDescription"
+        android:text="@string/secondActivityDescription"
+        android:layout_alignLeft="@+id/secondActivityTitle"
+        android:layout_below="@+id/secondActivityTitle"
+        android:layout_width="wrap_content"
+        android:layout_marginRight="10dp"
+        android:textSize="16sp"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:padding="0dp"
+        android:layout_alignParentRight="true"
+        android:scaleType="fitXY"
+        android:background="#00000000"
+        android:id="@+id/secondActivityReadButton"
+        android:layout_below="@+id/secondActivityDescription"
+        android:src="@drawable/read_more_button"
+        android:layout_width="150dp"
+        android:layout_height="58dp" />
+
+    <ImageView
+
+        android:id="@+id/secondActivitySeperator"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:padding="0dp"
+        android:layout_below="@id/secondActivityReadButton"
+        android:src="@drawable/content_seperator"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

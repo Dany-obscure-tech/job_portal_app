@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/background_2"
+    android:layout_height="match_parent"
+    tools:context=".JobApplicationForm">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/job_application_title" />
+
+            <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_name" />
+
+            <EditText
+                android:id="@+id/ApplicationFormName"
+                android:textColorHint="#9F9F9F"
+                android:hint="@string/name"
+                android:backgroundTint="#707070"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_contactno" />
+
+            <EditText
+                android:inputType="phone"
+                android:id="@+id/ApplicationFormcontactNo"
+                android:textColorHint="#9F9F9F"
+                android:hint="@string/contact_no"
+                android:backgroundTint="#707070"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_email" />
+
+            <EditText
+                android:id="@+id/ApplicationEmail"
+                android:textColorHint="#9F9F9F"
+                android:hint="@string/email"
+                android:backgroundTint="#707070"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_description" />
+
+            <EditText
+                android:id="@+id/ApplicationFormDescription"
+                android:textColorHint="#9F9F9F"
+                android:hint="@string/description"
+                android:backgroundTint="#707070"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageButton
+                android:layout_gravity="right"
+                android:id="@+id/applicationForm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="90dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#00000000"
+                android:padding="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.971"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.947"
+                app:srcCompat="@drawable/submit_button" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
