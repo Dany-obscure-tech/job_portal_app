@@ -2,15 +2,19 @@ package com.daniyalfarid.jobportal;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.daniyalfarid.jobportal.Adapter.ImageGalleryAdapter;
+import com.daniyalfarid.jobportal.AlertDialogs.ImageDisplayAlert;
 
 
 public class ThirdActivity extends AppCompatActivity {
@@ -18,7 +22,11 @@ public class ThirdActivity extends AppCompatActivity {
     TextView Title;
     ImageButton applybtn;
 
-    private int[] IMAGES = {R.drawable.img1,R.drawable.img2,R.drawable.img1,R.drawable.img2,R.drawable.img1,R.drawable.img2,R.mipmap.img3};
+    ImageView imageFrame;
+
+    FragmentManager fragmentManager = getSupportFragmentManager();
+
+    private int[] IMAGES = {R.drawable.img1,R.drawable.img2,R.mipmap.img3,R.drawable.img1,R.drawable.img2,R.mipmap.img3,R.drawable.img1,R.drawable.img2,R.mipmap.img3};
 
     private ImageGalleryAdapter adapter;
 
@@ -30,7 +38,9 @@ public class ThirdActivity extends AppCompatActivity {
         setContentView(R.layout.activity_third);
 
         Title = (TextView)findViewById(R.id.thirdActivityMainTitle);
-        applybtn = (ImageButton)findViewById(R.id.applyBtn);
+        applybtn = (ImageButton)findViewById(R.id.__applyBtn);
+        imageFrame = (ImageView)findViewById(R.id.imageFrame);
+
         String TITLE = getIntent().getStringExtra("TITLE2");
         Title.setText(TITLE);
 
@@ -44,15 +54,10 @@ public class ThirdActivity extends AppCompatActivity {
         imagGallery.setLayoutManager(layoutManager);
 
 
-        adapter = new ImageGalleryAdapter(this,IMAGES);
+        adapter = new ImageGalleryAdapter(this,IMAGES,fragmentManager);
 
         imagGallery.setAdapter(adapter);
 
-        jobApplication();
-
-    }
-
-    private void jobApplication() {
         applybtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,14 +65,12 @@ public class ThirdActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
-    public void AlertDialog(){
-        imagGallery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+    public void openDialog(){
+        ImageDisplayAlert imageDisplayAlert = new ImageDisplayAlert();
+        imageDisplayAlert.show(getSupportFragmentManager(),"Image Display");
     }
+
 }

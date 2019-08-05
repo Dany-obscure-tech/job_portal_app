@@ -2,31 +2,35 @@ package com.daniyalfarid.jobportal.Adapter;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
-import com.daniyalfarid.jobportal.ImageDisplayActivity;
 import com.daniyalfarid.jobportal.R;
-import com.daniyalfarid.jobportal.TestAvtivity;
+import com.daniyalfarid.jobportal.ThirdActivity;
 
 
 public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapter.ImageGalleryViewHolder>{
 
     private int[] pics;
+    ImageView imageFrame;
+    ThirdActivity thirdActObj;
+    FragmentManager fragmentManager;
+    Dialog myDialog;
 
 
 
     Context context;
 
-    public ImageGalleryAdapter(Context context, int[] btns){
+    public ImageGalleryAdapter(Context context, int[] btns, FragmentManager fragmentManager){
         pics = btns;
         this.context = context;
+        this.fragmentManager = fragmentManager;
 
     }
 
@@ -51,12 +55,31 @@ public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapte
 
 
     @Override
-    public void onBindViewHolder(@NonNull ImageGalleryViewHolder imageGalleryViewHolder, int i) {
+    public void onBindViewHolder(@NonNull final ImageGalleryViewHolder imageGalleryViewHolder, final int i) {
 
         int btnID = pics[i];
 
         imageGalleryViewHolder._pics.setImageResource(btnID);
 
+
+        // Dialog
+        myDialog = new Dialog(context);
+        myDialog.setContentView(R.layout.layout_imagealert);
+
+        imageGalleryViewHolder.parentID.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                ImageView imageFrame = (ImageView) myDialog.findViewById(R.id.imageFrame);
+                imageFrame.setImageResource(pics[imageGalleryViewHolder.getAdapterPosition()]);
+
+//                AlertDialog.Builder imageAlert = new AlertDialog.Builder(context);
+//                imageAlert.show();
+//                thirdActObj.openDialog();
+                myDialog.show();
+
+            }
+        });
 
     }
 
@@ -66,34 +89,26 @@ public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapte
     }
 
 
-    public class ImageGalleryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ImageGalleryViewHolder extends RecyclerView.ViewHolder{
         ImageView _pics;
-        ImageView _imageFrame;
+        LinearLayout parentID;
         public ImageGalleryViewHolder(@NonNull View itemView) {
             super(itemView);
-            itemView.findViewById(R.id.thirdActivityImage).setOnClickListener(this);
-            _imageFrame = itemView.findViewById(R.id.imageFrame);
-
-
-
-
+            parentID = itemView.findViewById(R.id.parentID);
 
             _pics = itemView.findViewById(R.id.thirdActivityImage);
 
-        }
-
-        @Override
-        public void onClick(View v) {
-//           Intent intent = new Intent(context, ImageDisplayActivity.class);
-            Toast.makeText(context,_pics.getDrawable().toString(),Toast.LENGTH_LONG).show();
-//           context.startActivity(intent);
-
-//            _imageFrame.setImageDrawable(_pics.getDrawable());
 
         }
+
 
 
 
     }
+
+    public void getImageFrameID(ImageView imageFrame){
+        this.imageFrame = imageFrame;
+    }
+
 
 }

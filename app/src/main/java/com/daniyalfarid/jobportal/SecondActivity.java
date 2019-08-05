@@ -16,8 +16,7 @@ public class SecondActivity extends AppCompatActivity {
 
     private String[] TITLES = {"Title1","Title2","Title3","Title4","Title5"};
     private String[] DESCRIPTIONS = {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."};
-    private int[] BTNS = {R.drawable.read_more_button,R.drawable.read_more_button,R.drawable.read_more_button,R.drawable.read_more_button,R.drawable.read_more_button};
-    private int[] LINES = {R.drawable.content_seperator,R.drawable.content_seperator,R.drawable.content_seperator,R.drawable.content_seperator,R.drawable.content_seperator};
+
 
     private SecondActivityListAdapter adapter;
 
@@ -44,7 +43,7 @@ public class SecondActivity extends AppCompatActivity {
         secondActivityList.setLayoutManager(layoutManager);
 
 
-        adapter = new SecondActivityListAdapter(this,TITLES,DESCRIPTIONS,BTNS,LINES);
+        adapter = new SecondActivityListAdapter(this,TITLES,DESCRIPTIONS);
 
         secondActivityList.setAdapter(adapter);
 
