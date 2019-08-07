@@ -1,51 +1,67 @@
 package com.daniyalfarid.jobportal;
 
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.daniyalfarid.jobportal.Adapter.SecondActivityListAdapter;
+import com.daniyalfarid.jobportal.Adapter.SecondActivityAdapter;
+import com.daniyalfarid.jobportal.DataModel.SecondActivityDataModel;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 
 public class SecondActivity extends AppCompatActivity {
-    RecyclerView secondActivityList;
-    TextView MainTitle;
 
-    private String[] TITLES = {"Title1","Title2","Title3","Title4","Title5"};
-    private String[] DESCRIPTIONS = {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."};
-
-
-    private SecondActivityListAdapter adapter;
-
-    private RecyclerView.LayoutManager layoutManager;
-
-
+    DatabaseReference databaseReference;
+    RecyclerView recyclerView;
+    ArrayList<SecondActivityDataModel> list;
+    SecondActivityAdapter adapter;
+    TextView secondActivityMainTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        MainTitle = (TextView)findViewById(R.id.secondActivityMainTitle);
-        String TITLE = getIntent().getStringExtra("TITLE");
+        Intent intent = getIntent();
+        String selectedJobCategory = intent.getStringExtra("Selected Job Category");
+        String SelectedJobTitle = intent.getStringExtra("Title");
 
-        MainTitle.setText(TITLE);
+        secondActivityMainTitle = (TextView)findViewById(R.id.secondActivityMainTitle);
+        secondActivityMainTitle.setText(SelectedJobTitle);
 
+        recyclerView = (RecyclerView)findViewById(R.id.secondActivityRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        secondActivityList = (RecyclerView)findViewById(R.id.secondActivityRecyclerView);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child(selectedJobCategory);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                list = new ArrayList<SecondActivityDataModel>();
+                for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
+                    SecondActivityDataModel data = dataSnapshot1.getValue(SecondActivityDataModel.class);
+                    list.add(data);
+                }
+                adapter = new SecondActivityAdapter(SecondActivity.this,list);
+                recyclerView.setAdapter(adapter);
+            }
 
-
-        layoutManager = new GridLayoutManager(SecondActivity.this,1);
-        secondActivityList.setHasFixedSize(true);
-        secondActivityList.setLayoutManager(layoutManager);
-
-
-        adapter = new SecondActivityListAdapter(this,TITLES,DESCRIPTIONS);
-
-        secondActivityList.setAdapter(adapter);
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(SecondActivity.this,"Error Occured",Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 }
