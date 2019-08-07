@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "589685943253",
+    "firebase_url": "https://job-portal-de3a0.firebaseio.com",
+    "project_id": "job-portal-de3a0",
+    "storage_bucket": "job-portal-de3a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589685943253:android:ad56b382de418dff",
+        "android_client_info": {
+          "package_name": "com.daniyalfarid.jobportal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "589685943253-on9iu6lqfavcbc1vc4g4jq37jdbmubd6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.daniyalfarid.jobportal",
+            "certificate_hash": "6d3314c2ff55423a09eb67db912493ddea0a364b"
+          }
+        },
+        {
+          "client_id": "589685943253-k24ddmn15c0lfo2oe29htgsqsi92fsv7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLAYFEak6o-g2ytMlPyl13JgCr4najcGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "589685943253-k24ddmn15c0lfo2oe29htgsqsi92fsv7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
