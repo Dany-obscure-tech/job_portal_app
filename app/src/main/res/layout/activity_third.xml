@@ -68,16 +68,32 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <ImageButton
-                android:id="@+id/__applyBtn"
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
                 android:layout_marginTop="25dp"
                 android:layout_gravity="right"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="20dp">
+
+            <ImageButton
+                android:id="@+id/__applyBtn"
                 android:background="#00000000"
                 android:src="@drawable/apply_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
+                <com.daniyalfarid.jobportal.Fonts.SegoeUI
+                    android:id="@+id/buttonText"
+                    android:text="button"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
 
         </LinearLayout>
     </ScrollView>

@@ -27,16 +27,35 @@
         android:textSize="16sp"
         android:layout_height="wrap_content" />
 
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_alignParentRight="true"
+
+        android:layout_below="@+id/secondActivityDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
     <android.support.v7.widget.AppCompatImageButton
         android:padding="0dp"
-        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
         android:scaleType="fitXY"
         android:background="#00000000"
         android:id="@+id/secondActivityReadButton"
-        android:layout_below="@+id/secondActivityDescription"
         android:src="@drawable/read_more_button"
         android:layout_width="150dp"
         android:layout_height="58dp" />
+
+        <com.daniyalfarid.jobportal.Fonts.SegoeUI
+            android:id="@+id/secondActivitybuttonText"
+            android:text="button"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
 
     <ImageView
 
@@ -44,7 +63,7 @@
         android:layout_centerHorizontal="true"
         android:scaleType="fitXY"
         android:padding="0dp"
-        android:layout_below="@id/secondActivityReadButton"
+        android:layout_below="@id/relativeLayout"
         android:src="@drawable/content_seperator"
         android:layout_width="300dp"
         android:layout_height="wrap_content" />

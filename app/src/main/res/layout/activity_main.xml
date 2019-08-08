@@ -9,15 +9,15 @@
     android:background="@drawable/main_activity_background"
     tools:context=".MainActivity">
 
-    <ImageView
+    <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
         android:layout_marginBottom="30dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/imageViewLogo"
+        android:id="@+id/textViewLogo"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginTop="30dp"
-        android:adjustViewBounds="true"
-        android:src="@drawable/logo" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"/>
 
 
 
@@ -26,20 +26,35 @@
         android:id="@+id/jobCategoryList"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/imageViewAddButton"
-        android:layout_below="@+id/imageViewLogo"
+        android:layout_below="@+id/textViewLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"/>
 
+    <RelativeLayout
+        android:layout_marginBottom="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
     <ImageButton
         android:id="@+id/imageViewAddButton"
-        android:layout_marginBottom="45dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="47dp"
         android:background="@drawable/addyourjob_button"
         />
+
+        <com.daniyalfarid.jobportal.Fonts.SegoeUI
+            android:id="@+id/buttonText"
+            android:layout_centerInParent="true"
+            android:textSize="19sp"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
 
 
 

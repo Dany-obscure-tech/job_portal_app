@@ -28,12 +28,26 @@ public class SecondActivity extends AppCompatActivity {
     ArrayList<SecondActivityDataModel> list;
     SecondActivityAdapter adapter;
     TextView secondActivityMainTitle;
+    String textData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
+//
+//        buttonTextRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                String data = dataSnapshot.child("Second Activity Button Text").getValue(String.class);
+//                textData = data;
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//
         Intent intent = getIntent();
         String selectedJobCategory = intent.getStringExtra("Selected Job Category");
         String SelectedJobTitle = intent.getStringExtra("Title");

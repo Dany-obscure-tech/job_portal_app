@@ -25,11 +25,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
+            <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
+                android:id="@+id/addJobTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:src="@drawable/addjob_title" />
+                android:textSize="35sp"
+                android:layout_marginBottom="30dp" />
 
             <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
                 android:textSize="18sp"
@@ -38,6 +39,7 @@
                 android:text="@string/enter_name" />
 
             <EditText
+                android:maxLength="32"
                 android:id="@+id/addJobFormName"
                 android:textColorHint="#9F9F9F"
                 android:hint="@string/name"
@@ -53,6 +55,7 @@
                 android:text="@string/enter_contactno" />
 
             <EditText
+                android:maxLength="11"
                 android:inputType="phone"
                 android:id="@+id/addJobFormcontactNo"
                 android:textColorHint="#9F9F9F"
@@ -69,6 +72,7 @@
                 android:text="@string/enter_email" />
 
             <EditText
+                android:inputType="textEmailAddress"
                 android:id="@+id/addJobEmail"
                 android:textColorHint="#9F9F9F"
                 android:hint="@string/email"
@@ -109,7 +113,7 @@
 
             <ImageButton
                 android:layout_gravity="right"
-                android:id="@+id/applicationForm"
+                android:id="@+id/applicationFormSubmit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
