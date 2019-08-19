@@ -24,10 +24,11 @@ import java.util.ArrayList;
 public class SecondActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference;
+    DatabaseReference textTitleRef;
     RecyclerView recyclerView;
     ArrayList<SecondActivityDataModel> list;
     SecondActivityAdapter adapter;
-    TextView secondActivityMainTitle;
+    TextView secondActivityMainTitle,addJob2Text;
     String textData;
 
     @Override
@@ -53,10 +54,26 @@ public class SecondActivity extends AppCompatActivity {
         String SelectedJobTitle = intent.getStringExtra("Title");
 
         secondActivityMainTitle = (TextView)findViewById(R.id.secondActivityMainTitle);
+        addJob2Text = (TextView)findViewById(R.id.addJob2Text);
+
         secondActivityMainTitle.setText(SelectedJobTitle);
 
         recyclerView = (RecyclerView)findViewById(R.id.secondActivityRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        textTitleRef = FirebaseDatabase.getInstance().getReference().child("Project Text Titles");
+        textTitleRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String data2 = dataSnapshot.child("Add Job Title 2").getValue(String.class);
+                addJob2Text.setText(data2);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(SecondActivity.this,"Error Occured",Toast.LENGTH_LONG).show();
+            }
+        });
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child(selectedJobCategory);
         databaseReference.addValueEventListener(new ValueEventListener() {

@@ -19,9 +19,12 @@
         android:textSize="35sp"/>
 
     <android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_below="@+id/secondActivityMainTitle"
-    android:layout_height="match_parent">
+        android:id="@+id/contraintLayout"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/secondActivityMainTitle"
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/secondActivityRecyclerView"
@@ -35,6 +38,33 @@
             app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/button"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/imageViewAddButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/addyourjob_button"
+            />
+
+        <com.daniyalfarid.jobportal.Fonts.SegoeUI
+            android:id="@+id/addJob2Text"
+            android:layout_centerInParent="true"
+            android:textSize="19sp"
+            android:text="Button"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
 
 
 
