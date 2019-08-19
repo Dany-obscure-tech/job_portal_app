@@ -44,12 +44,12 @@
                 android:textStyle="bold" />
 
             <com.daniyalfarid.jobportal.Fonts.SegoeUI
-                android:layout_marginBottom="30dp"
                 android:id="@+id/thirdActivityDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="30dp"
                 android:text="@string/thirdActivityDescription"
                 android:textSize="16sp" />
 

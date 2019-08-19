@@ -24,4 +24,6 @@
     <string name="description">Enter your description</string>
     <string name="attach_file">ATTACH FILE</string>
     <string name="file_name">(file name).......</string>
+    <string name="title">Title</string>
+    <string name="Description">Description</string>
 </resources>
