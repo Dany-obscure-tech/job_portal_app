@@ -23,9 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/job_portal_text"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="396dp">
+        android:layout_centerHorizontal="true">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -36,7 +34,7 @@
                 android:id="@+id/jobCategoryIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#fffffff"
+                android:background="#00000000"
                 android:padding="20dp"
                 android:src="@drawable/job_category_icon_button" />
             <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
@@ -60,7 +58,7 @@
                 android:id="@+id/imageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#"
+                android:background="#00000000"
                 android:padding="20dp"
                 android:src="@drawable/job_category_icon_button" />
             <com.daniyalfarid.jobportal.Fonts.SegoeUIBold

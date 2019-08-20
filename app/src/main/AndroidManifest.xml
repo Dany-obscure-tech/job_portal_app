@@ -11,16 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartSelectionActivity"></activity>
-        <activity android:name=".post_activity" /> <!-- <activity android:name=".TestAvtivity" /> -->
-        <activity android:name=".AddJobActivity" />
-        <activity android:name=".JobApplicationForm" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".StartSelectionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".post_activity" /> <!-- <activity android:name=".TestAvtivity" /> -->
+        <activity android:name=".AddJobActivity" />
+        <activity android:name=".JobApplicationForm" />
+        <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".SecondActivity" />
         <activity android:name=".ThirdActivity" />
