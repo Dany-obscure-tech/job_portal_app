@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,33 +32,38 @@ public class SecondActivity extends AppCompatActivity {
     SecondActivityAdapter adapter;
     TextView secondActivityMainTitle,addJob2Text;
     String textData;
+    ImageButton imageViewAddButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-//
-//        buttonTextRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                String data = dataSnapshot.child("Second Activity Button Text").getValue(String.class);
-//                textData = data;
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//
+
         Intent intent = getIntent();
-        String selectedJobCategory = intent.getStringExtra("Selected Job Category");
+        final String selectedJobCategory = intent.getStringExtra("Selected Job Category");
         String SelectedJobTitle = intent.getStringExtra("Title");
 
         secondActivityMainTitle = (TextView)findViewById(R.id.secondActivityMainTitle);
         addJob2Text = (TextView)findViewById(R.id.addJob2Text);
 
-        secondActivityMainTitle.setText(SelectedJobTitle);
+        imageViewAddButton = (ImageButton)findViewById(R.id.imageViewAddButton);
+        imageViewAddButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SecondActivity.this,post_activity.class);
+                intent.putExtra("ID",selectedJobCategory);
+                startActivity(intent);
+            }
+        });
+
+
+
+
+
+
+
+
+        secondActivityMainTitle.setText(selectedJobCategory);
 
         recyclerView = (RecyclerView)findViewById(R.id.secondActivityRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

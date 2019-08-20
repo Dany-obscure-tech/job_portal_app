@@ -25,7 +25,6 @@
 
         android:id="@+id/jobCategoryList"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/imageViewAddButton"
         android:layout_below="@+id/textViewLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

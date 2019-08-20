@@ -29,29 +29,27 @@
 
 
     <RelativeLayout
+        android:padding="0dp"
         android:layout_marginTop="15dp"
         android:id="@+id/relativeLayout"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/secondActivityDescription"
         android:layout_width="wrap_content"
+        android:layout_marginBottom="15dp"
         android:layout_height="wrap_content">
 
-    <android.support.v7.widget.AppCompatImageButton
+    <ImageButton
         android:padding="0dp"
-        android:layout_centerInParent="true"
-        android:scaleType="fitXY"
-        android:background="#00000000"
         android:id="@+id/secondActivityReadButton"
         android:src="@drawable/read_more_button"
-        android:layout_width="150dp"
-        android:layout_height="58dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
         <com.daniyalfarid.jobportal.Fonts.SegoeUI
             android:id="@+id/secondActivitybuttonText"
             android:text="button"
-            android:layout_marginTop="16dp"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
-            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
