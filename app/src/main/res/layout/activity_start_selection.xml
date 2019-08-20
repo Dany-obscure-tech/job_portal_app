@@ -39,6 +39,14 @@
                 android:background="#fffffff"
                 android:padding="20dp"
                 android:src="@drawable/job_category_icon_button" />
+            <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Post Job"
+                android:textColor="#fff"
+                android:textSize="15sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -55,6 +63,14 @@
                 android:background="#"
                 android:padding="20dp"
                 android:src="@drawable/job_category_icon_button" />
+            <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search Job"
+                android:textColor="#fff"
+                android:textSize="15sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
 
         </RelativeLayout>
     </LinearLayout>
