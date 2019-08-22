@@ -26,4 +26,5 @@
     <string name="file_name">(file name).......</string>
     <string name="title">Title</string>
     <string name="Description">Description</string>
+    <string name="email_1">Email</string>
 </resources>
