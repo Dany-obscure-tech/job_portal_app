@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daniyalfarid.jobportal.Adapter.ImageGalleryAdapter;
 import com.daniyalfarid.jobportal.AlertDialogs.ImageDisplayAlert;
@@ -28,9 +29,10 @@ import java.util.ArrayList;
 public class ThirdActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference buttonTextRef;
+    DatabaseReference databaseReference;
 
     RecyclerView recyclerView;
-    TextView Title;
+    TextView Title,thirdActivityDescription;
     ImageButton applybtn;
     TextView buttonText;
 
@@ -40,11 +42,13 @@ public class ThirdActivity extends AppCompatActivity {
 
     private ArrayList<String> mImages;
 
-    private int[] IMAGES = {R.drawable.img1,R.drawable.img2,R.mipmap.img3,R.drawable.img1,R.drawable.img2,R.mipmap.img3,R.drawable.img1,R.drawable.img2,R.mipmap.img3};
+//    private int[] IMAGES = {R.drawable.img1,R.drawable.img2,R.mipmap.img3,R.drawable.img1,R.drawable.img2,R.mipmap.img3,R.drawable.img1,R.drawable.img2,R.mipmap.img3};
 
     private ImageGalleryAdapter adapter;
 
     private RecyclerView.LayoutManager layoutManager;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,7 @@ public class ThirdActivity extends AppCompatActivity {
         buttonText=(TextView)findViewById(R.id.buttonText);
 
         Title = (TextView)findViewById(R.id.thirdActivityMainTitle);
+        thirdActivityDescription = (TextView)findViewById(R.id.thirdActivityDescription);
         applybtn = (ImageButton)findViewById(R.id.__applyBtn);
         imageFrame = (ImageView)findViewById(R.id.imageFrame);
 
@@ -77,7 +82,11 @@ public class ThirdActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         final String TITLE = intent.getStringExtra("Title_");
+        final String EMAIL = intent.getStringExtra("Email_");
+        final String FULL_DESCRIPTION = intent.getStringExtra("Full_Description_");
+        final ArrayList<String> IMAGES= intent.getStringArrayListExtra("Images_");
         Title.setText(TITLE);
+        thirdActivityDescription.setText(FULL_DESCRIPTION);
 
 
         recyclerView = (RecyclerView)findViewById(R.id.imageGallery);
@@ -99,15 +108,12 @@ public class ThirdActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ThirdActivity.this,JobApplicationForm.class);
                 intent.putExtra("T",Title.getText());
+                intent.putExtra("Email_",EMAIL);
+
                 startActivity(intent);
             }
         });
 
-    }
-
-    public void openDialog(){
-        ImageDisplayAlert imageDisplayAlert = new ImageDisplayAlert();
-        imageDisplayAlert.show(getSupportFragmentManager(),"Image Display");
     }
 
 }

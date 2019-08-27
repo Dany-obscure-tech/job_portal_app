@@ -27,10 +27,11 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     DatabaseReference titleDatabaseRef;
     RecyclerView recyclerView;
-    ImageButton imageViewAddButton;
+    ImageButton imageViewAddButton,postJobButton;
     ArrayList<MainActivityDataModel> list;
     FirstActivityAdapter firstActivityAdapter;
     TextView buttonText;
+
 
     TextView logo;
 
@@ -56,6 +57,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+
+        postJobButton = (ImageButton)findViewById(R.id.postJobButton);
+        postJobButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,post_activity.class);
+                intent.putExtra("ID","");
+                startActivity(intent);
             }
         });
 

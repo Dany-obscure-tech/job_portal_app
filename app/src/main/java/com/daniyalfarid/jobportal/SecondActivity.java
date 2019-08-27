@@ -41,7 +41,7 @@ public class SecondActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String selectedJobCategory = intent.getStringExtra("Selected Job Category");
-        String SelectedJobTitle = intent.getStringExtra("Title");
+        final String SelectedJobTitle = intent.getStringExtra("Title");
 
         secondActivityMainTitle = (TextView)findViewById(R.id.secondActivityMainTitle);
         addJob2Text = (TextView)findViewById(R.id.addJob2Text);
@@ -51,7 +51,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SecondActivity.this,post_activity.class);
-                intent.putExtra("ID",selectedJobCategory);
+                intent.putExtra("ID",SelectedJobTitle);
                 startActivity(intent);
             }
         });
@@ -63,7 +63,7 @@ public class SecondActivity extends AppCompatActivity {
 
 
 
-        secondActivityMainTitle.setText(selectedJobCategory);
+        secondActivityMainTitle.setText(SelectedJobTitle);
 
         recyclerView = (RecyclerView)findViewById(R.id.secondActivityRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -82,7 +82,7 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child(selectedJobCategory);
+        databaseReference = FirebaseDatabase.getInstance().getReference("Job Categories").child(selectedJobCategory);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -91,6 +91,7 @@ public class SecondActivity extends AppCompatActivity {
                     SecondActivityDataModel data = dataSnapshot1.getValue(SecondActivityDataModel.class);
                     list.add(data);
                 }
+                String reference = dataSnapshot.getRef().toString();
                 adapter = new SecondActivityAdapter(SecondActivity.this,list);
                 recyclerView.setAdapter(adapter);
             }

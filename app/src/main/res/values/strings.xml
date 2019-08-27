@@ -22,9 +22,10 @@
     <string name="contact_no">Enter your contact no</string>
     <string name="email">Enter your email</string>
     <string name="description">Enter your description</string>
-    <string name="attach_file">ATTACH FILE</string>
-    <string name="file_name">(file name).......</string>
+    <string name="attach_file">Add Image/s</string>
+    <string name="file_name">(Image/s name).......</string>
     <string name="title">Title</string>
     <string name="Description">Description</string>
     <string name="email_1">Email</string>
+    <string name="category">Category</string>
 </resources>

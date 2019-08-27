@@ -13,11 +13,14 @@ import android.widget.LinearLayout;
 
 import com.daniyalfarid.jobportal.R;
 import com.daniyalfarid.jobportal.ThirdActivity;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 
 public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapter.ImageGalleryViewHolder>{
 
-    private int[] pics;
+    ArrayList<String> pics=null;
     ImageView imageFrame;
     ThirdActivity thirdActObj;
     FragmentManager fragmentManager;
@@ -27,7 +30,7 @@ public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapte
 
     Context context;
 
-    public ImageGalleryAdapter(Context context, int[] btns, FragmentManager fragmentManager){
+    public ImageGalleryAdapter(Context context, ArrayList<String> btns, FragmentManager fragmentManager){
         pics = btns;
         this.context = context;
         this.fragmentManager = fragmentManager;
@@ -57,35 +60,41 @@ public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapte
     @Override
     public void onBindViewHolder(@NonNull final ImageGalleryViewHolder imageGalleryViewHolder, final int i) {
 
-        int btnID = pics[i];
 
-        imageGalleryViewHolder._pics.setImageResource(btnID);
+        if (pics!=null){
+            String btnID = pics.get(i);
 
+//        imageGalleryViewHolder._pics.setImageResource(btnID);
+            Picasso.get().load(btnID).into(imageGalleryViewHolder._pics);
 
-        // Dialog
-        myDialog = new Dialog(context);
-        myDialog.setContentView(R.layout.layout_imagealert);
+            // Dialog
+            myDialog = new Dialog(context);
+            myDialog.setContentView(R.layout.layout_imagealert);
 
-        imageGalleryViewHolder.parentID.setOnClickListener(new View.OnClickListener() {
+            imageGalleryViewHolder.parentID.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                ImageView imageFrame = (ImageView) myDialog.findViewById(R.id.imageFrame);
-                imageFrame.setImageResource(pics[imageGalleryViewHolder.getAdapterPosition()]);
+                @Override
+                public void onClick(View v) {
+                    ImageView imageFrame = (ImageView) myDialog.findViewById(R.id.imageFrame);
+//                imageFrame.setImageResource(pics[imageGalleryViewHolder.getAdapterPosition()]);
+                    Picasso.get().load(pics.get(imageGalleryViewHolder.getAdapterPosition())).into(imageFrame);
 
 //                AlertDialog.Builder imageAlert = new AlertDialog.Builder(context);
 //                imageAlert.show();
 //                thirdActObj.openDialog();
-                myDialog.show();
+                    myDialog.show();
 
-            }
-        });
+                }
+            });
+
+        }
+
 
     }
 
     @Override
     public int getItemCount() {
-        return pics.length;
+        return pics.size();
     }
 
 

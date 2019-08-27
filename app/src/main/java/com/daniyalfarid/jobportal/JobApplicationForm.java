@@ -66,6 +66,9 @@ public class JobApplicationForm extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String T = intent.getStringExtra("T");
+        final String EMAIL = intent.getStringExtra("Email_");
+        Toast.makeText(JobApplicationForm.this,EMAIL,Toast.LENGTH_SHORT).show();
+
         Toast.makeText(getApplicationContext(),T,Toast.LENGTH_SHORT).show();
 
         applicationFormSubmit.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +79,8 @@ public class JobApplicationForm extends AppCompatActivity {
                 String email = ApplicationEmail.getText().toString().trim();
                 String description = ApplicationFormDescription.getText().toString().trim();
 
+                String _email = EMAIL;
+
 
                 boolean VALIDATE = validate(name,contactNo,email,description);
 
@@ -83,6 +88,7 @@ public class JobApplicationForm extends AppCompatActivity {
                     String key = mRef.push().getKey();
 
                     mRef.child(key).child("name").setValue(name);
+                    mRef.child(key).child("Job_provider_email").setValue(_email);
                     mRef.child(key).child("contactNo").setValue(contactNo);
                     mRef.child(key).child("email").setValue(email);
                     mRef.child(key).child("description").setValue(description);
