@@ -14,6 +14,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -43,7 +44,7 @@ import static android.provider.Contacts.SettingsColumns.KEY;
 
 public class post_activity extends AppCompatActivity {
 
-    String title1,description1,category1 = null;
+    String title1,description1,category1,full_description1,name1,email1,contact1 = null;
 
     EditText title,description,full_description,name,email,contactNo;
     ImageButton submit;
@@ -301,7 +302,7 @@ public class post_activity extends AppCompatActivity {
                 String _category = categorySelection.getSelectedItem().toString();
                 String _selectedCategory = categorySelection.getSelectedItem().toString();
 
-                boolean valid = validate(_title,_description,_category);
+                boolean valid = validate(_title,_description,_category,_name,_email,_contactNo,_full_description);
 
                 if (valid==true){
                     final DatabaseReference ref = database.getReference("Job Categories/"+_selectedCategory);
@@ -386,22 +387,52 @@ public class post_activity extends AppCompatActivity {
         });
     }
 
-    private boolean validate(String _title, String _description,String _category) {
+    private boolean validate(String _title, String _description,String _category,String _name,String _email,String _contactNo,String _full_description) {
         title1 = _title;
         description1 = _description;
         category1 = _category;
+        name1=_name;
+        email1=_email;
+        contact1=_contactNo;
+        full_description1=_full_description;
+
+
         boolean valid =true;
-        if (_title.isEmpty()){
+        if (title1.isEmpty()){
             title.setError("Please enter title");
             valid = false;
         }
-        if(_description.isEmpty()){
+        if(description1.isEmpty()){
             description.setError("Please enter description");
             valid = false;
         }
         if (category1 =="-Select Category-"){
             ((TextView)categorySelection.getSelectedView()).setError("Please select a category");
             valid = false;
+        }
+        if (name1.isEmpty()){
+            name.setError("Please enter your name");
+            valid= false;
+        }
+        if (email1.isEmpty()){
+            email.setError("Please enter valid email");
+            valid= false;
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email1).matches()){
+            email.setError("Please enter a valid email");
+            valid=false;
+        }
+        if (contact1.isEmpty()){
+            contactNo.setError("Please enter valid contact number");
+            valid=false;
+        }
+        if (contact1.length()<11){
+            contactNo.setError("Please enter valid contact no");
+            valid = false;
+        }
+        if (full_description1.isEmpty()){
+            full_description.setError("Please enter full-description");
+            valid=false;
         }
 
         return valid;

@@ -28,4 +28,12 @@
     <string name="Description">Description</string>
     <string name="email_1">Email</string>
     <string name="category">Category</string>
+    <string name="enter_your_email_address">Enter your email address</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_full_description">Enter your full description</string>
+    <string name="full_description">Full-Description</string>
+    <string name="post_job">Post Job</string>
+    <string name="enter_your_job_post_title">Enter your job post title</string>
+    <string name="name_1">Name</string>
+    <string name="enter_your_contact_no">Enter your contact no</string>
 </resources>

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
-        android:text="Post Job"
+        android:text="@string/post_job"
         android:textSize="35sp" />
 
     <ScrollView
@@ -54,11 +54,12 @@
                 android:textSize="18sp" />
 
             <EditText
+                android:maxLength="32"
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#707070"
-                android:hint="Enter your job post title"
+                android:hint="@string/enter_your_job_post_title"
                 android:textColorHint="#9F9F9F" />
 
             <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
@@ -69,6 +70,7 @@
                 android:textSize="18sp" />
 
             <EditText
+                android:maxLength="100"
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,30 +82,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Full-Description"
+                android:text="@string/full_description"
                 android:textSize="18sp" />
 
             <EditText
+                android:maxLength="350"
                 android:id="@+id/full_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#707070"
-                android:hint="Enter your full description"
+                android:hint="@string/enter_your_full_description"
                 android:textColorHint="#9F9F9F" />
 
             <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Name"
+                android:text="@string/name_1"
                 android:textSize="18sp" />
 
             <EditText
+                android:maxLength="32"
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#707070"
-                android:hint="Enter your name"
+                android:hint="@string/enter_your_name"
                 android:textColorHint="#9F9F9F" />
 
             <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
@@ -114,11 +118,12 @@
                 android:textSize="18sp" />
 
             <EditText
+                android:inputType="textEmailAddress"
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#707070"
-                android:hint="Enter your email address"
+                android:hint="@string/enter_your_email_address"
                 android:textColorHint="#9F9F9F" />
 
             <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
@@ -129,11 +134,12 @@
                 android:textSize="18sp" />
 
             <EditText
+                android:maxLength="11"
                 android:id="@+id/contactNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Enter your contact no"
+                android:hint="@string/enter_your_contact_no"
                 android:inputType="phone" />
 
             <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
