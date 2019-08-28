@@ -309,6 +309,7 @@ public class post_activity extends AppCompatActivity {
                     final String key = ref.push().getKey();
 
                     ref.child(key).child("title").setValue(_title);
+                    ref.child(key).child("pushID").setValue(key);
                     ref.child(key).child("description").setValue(_description);
                     ref.child(key).child("full_description").setValue(_full_description);
                     ref.child(key).child("name").setValue(_name);
@@ -372,6 +373,13 @@ public class post_activity extends AppCompatActivity {
                             finish();
 
                         }
+                        Toast.makeText(getApplicationContext(),"Submitted",Toast.LENGTH_SHORT).show();
+
+                        finish();
+
+
+                    }else {
+                        ref.child(key).child("images/1").setValue("no Images");
                     }
 
 

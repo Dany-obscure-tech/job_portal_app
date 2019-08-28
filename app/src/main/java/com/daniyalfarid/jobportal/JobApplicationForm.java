@@ -11,11 +11,15 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.Map;
 
 public class JobApplicationForm extends AppCompatActivity {
     String name=null;
@@ -25,6 +29,7 @@ public class JobApplicationForm extends AppCompatActivity {
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRef;
+    private DatabaseReference fDescRef;
     private DatabaseReference titleRef;
     private TextView title;
 
@@ -38,8 +43,9 @@ public class JobApplicationForm extends AppCompatActivity {
 
         mDatabase=FirebaseDatabase.getInstance();
 
-        mRef=mDatabase.getReference("Job Applications");
+
         titleRef = mDatabase.getReference("Project Text Titles");
+        fDescRef = mDatabase.getReference("Job Categories");
 
 
         ApplicationFormName=(EditText)findViewById(R.id.ApplicationFormName);
@@ -66,10 +72,22 @@ public class JobApplicationForm extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String T = intent.getStringExtra("T");
-        final String EMAIL = intent.getStringExtra("Email_");
-        Toast.makeText(JobApplicationForm.this,EMAIL,Toast.LENGTH_SHORT).show();
+        final String FULL_DESCRIPTION = intent.getStringExtra("FULL_DESCRIPTION");
+        final String PUSHID = intent.getStringExtra("PUSHID");
+        mRef=mDatabase.getReference("Job Applications/"+PUSHID);
+//        Toast.makeText(JobApplicationForm.this,FULL_DESCRIPTION,Toast.LENGTH_SHORT).show();
 
-        Toast.makeText(getApplicationContext(),T,Toast.LENGTH_SHORT).show();
+        String pushID = null;
+
+        final Query userQuery = FirebaseDatabase.getInstance().getReference().child("Job Categories").orderByChild("full_description");
+
+///////////////////////
+
+
+
+////////////////////////
+
+//        Toast.makeText(getApplicationContext(), pushID[0],Toast.LENGTH_SHORT).show();
 
         applicationFormSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +97,8 @@ public class JobApplicationForm extends AppCompatActivity {
                 String email = ApplicationEmail.getText().toString().trim();
                 String description = ApplicationFormDescription.getText().toString().trim();
 
-                String _email = EMAIL;
+                String _FULL_DESCRIPTION = FULL_DESCRIPTION;
+                Toast.makeText(getApplicationContext(),_FULL_DESCRIPTION,Toast.LENGTH_SHORT).show();
 
 
                 boolean VALIDATE = validate(name,contactNo,email,description);
@@ -87,8 +106,8 @@ public class JobApplicationForm extends AppCompatActivity {
                 if (VALIDATE==true){
                     String key = mRef.push().getKey();
 
+
                     mRef.child(key).child("name").setValue(name);
-                    mRef.child(key).child("Job_provider_email").setValue(_email);
                     mRef.child(key).child("contactNo").setValue(contactNo);
                     mRef.child(key).child("email").setValue(email);
                     mRef.child(key).child("description").setValue(description);

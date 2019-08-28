@@ -82,9 +82,9 @@ public class ThirdActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         final String TITLE = intent.getStringExtra("Title_");
-        final String EMAIL = intent.getStringExtra("Email_");
         final String FULL_DESCRIPTION = intent.getStringExtra("Full_Description_");
         final ArrayList<String> IMAGES= intent.getStringArrayListExtra("Images_");
+        final String PUSHID = intent.getStringExtra("PUSHID");
         Title.setText(TITLE);
         thirdActivityDescription.setText(FULL_DESCRIPTION);
 
@@ -108,7 +108,8 @@ public class ThirdActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ThirdActivity.this,JobApplicationForm.class);
                 intent.putExtra("T",Title.getText());
-                intent.putExtra("Email_",EMAIL);
+                intent.putExtra("FULL_DESCRIPTION",FULL_DESCRIPTION);
+                intent.putExtra("PUSHID",PUSHID);
 
                 startActivity(intent);
             }

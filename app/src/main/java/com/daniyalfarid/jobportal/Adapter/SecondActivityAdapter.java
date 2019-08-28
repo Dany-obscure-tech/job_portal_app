@@ -106,6 +106,7 @@ public class SecondActivityAdapter extends RecyclerView.Adapter<SecondActivityAd
                 intent.putExtra("Full_Description_",datamodels.get(position).getFull_description());
                 ArrayList<String> s = datamodels.get(position).getImages();
                 intent.putExtra("Images_",s);
+                intent.putExtra("PUSHID",datamodels.get(position).getPushID());
 
                 Toast.makeText(context,datamodels.get(position).getEmail(),Toast.LENGTH_SHORT).show();
                 context.startActivity(intent);

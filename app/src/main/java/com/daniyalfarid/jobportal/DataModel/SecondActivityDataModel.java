@@ -9,18 +9,20 @@ public class SecondActivityDataModel {
     String full_description;
     ArrayList<String> images;
     String email;
+    String pushID;
 
 
     public SecondActivityDataModel() {
     }
 
-    public SecondActivityDataModel(String title, String description, Boolean active,String full_description,ArrayList<String> images,String email) {
+    public SecondActivityDataModel(String title, String description, Boolean active,String full_description,ArrayList<String> images,String email,String pushID) {
         this.title = title;
         this.description = description;
         this.active = active;
         this.full_description = full_description;
         this.images = images;
         this.email = email;
+        this.pushID = pushID;
 
     }
 
@@ -70,5 +72,13 @@ public class SecondActivityDataModel {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPushID() {
+        return pushID;
+    }
+
+    public void setPushID(String pushID) {
+        this.pushID = pushID;
     }
 }
