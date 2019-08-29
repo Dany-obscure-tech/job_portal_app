@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton imageViewAddButton,postJobButton;
     ArrayList<MainActivityDataModel> list;
     FirstActivityAdapter firstActivityAdapter;
-    TextView buttonText;
+    TextView buttonText,postJobButtonText;
 
 
     TextView logo;
@@ -44,14 +44,20 @@ public class MainActivity extends AppCompatActivity {
         titleDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Project Text Titles");
         logo = (TextView)findViewById(R.id.textViewLogo);
         buttonText = (TextView)findViewById(R.id.buttonText);
+        postJobButtonText = (TextView)findViewById(R.id.postJobButtonText);
+
 
         titleDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String data = dataSnapshot.child("Main Activity Title").getValue(String.class);
-                String data2 = dataSnapshot.child("Main Activity Button Text").getValue(String.class);
+                String data2 = dataSnapshot.child("Main Activity Add your CV Text").getValue(String.class);
+                String data3 = dataSnapshot.child("Main Activity Post Job Button Text").getValue(String.class);
+
                 logo.setText(data);
                 buttonText.setText(data2);
+                postJobButtonText.setText(data3);
+
             }
 
             @Override

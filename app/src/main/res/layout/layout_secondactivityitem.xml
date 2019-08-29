@@ -49,7 +49,8 @@
 
         <com.daniyalfarid.jobportal.Fonts.SegoeUI
             android:id="@+id/secondActivitybuttonText"
-            android:text="button"
+            android:text="Read More"
+            android:textSize="12sp"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"

@@ -10,17 +10,17 @@
         android:id="@+id/applicationFormTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:text="@string/post_job"
-        android:textSize="35sp" />
+        android:text="POST JOB"
+        android:textSize="30sp" />
 
     <ScrollView
         android:layout_below="@+id/applicationFormTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="8dp">
 
         <LinearLayout
@@ -130,7 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Contact.No"
+                android:text="@string/post_job_contact_no"
                 android:textSize="18sp" />
 
             <EditText
@@ -173,19 +173,35 @@
                     android:id="@+id/addJobFormAttachFile"/>
             </LinearLayout>
 
-
-            <ImageButton
-                android:id="@+id/submit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <RelativeLayout
                 android:layout_gravity="right"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="30dp"
-                android:background="#00000000"
-                android:padding="0dp"
-                app:srcCompat="@drawable/submit_button" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:padding="0dp"
+                    app:srcCompat="@drawable/submit_button" />
+
+                <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
+                    android:id="@+id/postActivityButtonText"
+                    android:textSize="12sp"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </RelativeLayout>
+
 
 
         </LinearLayout>

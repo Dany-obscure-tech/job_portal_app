@@ -72,7 +72,7 @@ public class SecondActivity extends AppCompatActivity {
         textTitleRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String data2 = dataSnapshot.child("Add Job Title 2").getValue(String.class);
+                String data2 = dataSnapshot.child("Second Activity Post Job Text").getValue(String.class);
                 addJob2Text.setText(data2);
             }
 

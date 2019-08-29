@@ -108,7 +108,6 @@ public class SecondActivityAdapter extends RecyclerView.Adapter<SecondActivityAd
                 intent.putExtra("Images_",s);
                 intent.putExtra("PUSHID",datamodels.get(position).getPushID());
 
-                Toast.makeText(context,datamodels.get(position).getEmail(),Toast.LENGTH_SHORT).show();
                 context.startActivity(intent);
             }
         });

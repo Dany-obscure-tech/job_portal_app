@@ -31,7 +31,7 @@ public class JobApplicationForm extends AppCompatActivity {
     private DatabaseReference mRef;
     private DatabaseReference fDescRef;
     private DatabaseReference titleRef;
-    private TextView title;
+    private TextView title,applicationFormButtonText;
 
     EditText ApplicationFormName,ApplicationFormcontactNo,ApplicationEmail,ApplicationFormDescription;
     ImageButton applicationFormSubmit;
@@ -55,11 +55,15 @@ public class JobApplicationForm extends AppCompatActivity {
 
         applicationFormSubmit=(ImageButton)findViewById(R.id.applicationFormSubmit);
         title=(TextView)findViewById(R.id.applicationFormTitle);
+        applicationFormButtonText=(TextView)findViewById(R.id.applicationFormButtonText);
+
 
         titleRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String data = dataSnapshot.child("Application Form Title").getValue(String.class);
+                String data = dataSnapshot.child("Job Application Form Title").getValue(String.class);
+                String data1 = dataSnapshot.child("Job Application Form Button Text").getValue(String.class);
+                applicationFormButtonText.setText(data1);
                 title.setText(data);
             }
 
@@ -75,7 +79,7 @@ public class JobApplicationForm extends AppCompatActivity {
         final String FULL_DESCRIPTION = intent.getStringExtra("FULL_DESCRIPTION");
         final String PUSHID = intent.getStringExtra("PUSHID");
         mRef=mDatabase.getReference("Job Applications/"+PUSHID);
-//        Toast.makeText(JobApplicationForm.this,FULL_DESCRIPTION,Toast.LENGTH_SHORT).show();
+
 
         String pushID = null;
 
@@ -87,7 +91,7 @@ public class JobApplicationForm extends AppCompatActivity {
 
 ////////////////////////
 
-//        Toast.makeText(getApplicationContext(), pushID[0],Toast.LENGTH_SHORT).show();
+
 
         applicationFormSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,7 +102,7 @@ public class JobApplicationForm extends AppCompatActivity {
                 String description = ApplicationFormDescription.getText().toString().trim();
 
                 String _FULL_DESCRIPTION = FULL_DESCRIPTION;
-                Toast.makeText(getApplicationContext(),_FULL_DESCRIPTION,Toast.LENGTH_SHORT).show();
+
 
 
                 boolean VALIDATE = validate(name,contactNo,email,description);

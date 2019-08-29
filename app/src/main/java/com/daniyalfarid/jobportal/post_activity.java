@@ -49,13 +49,14 @@ public class post_activity extends AppCompatActivity {
     EditText title,description,full_description,name,email,contactNo;
     ImageButton submit;
     FirebaseDatabase database;
+    DatabaseReference textRef;
     DatabaseReference databaseReference;
     DatabaseReference spinnerDataRef;
     private FirebaseStorage mStorageReference;
     Spinner categorySelection;
     String selectedCategory;
 
-    TextView addedFileName;
+    TextView addedFileName,applicationFormTitle,postActivityButtonText;
     ImageButton add_file_button;
 
     private Uri singleUri = null;
@@ -69,6 +70,8 @@ public class post_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_activity);
+
+        textRef = FirebaseDatabase.getInstance().getReference("Project Text Titles");
 
         mStorageReference = FirebaseStorage.getInstance();
         final StorageReference docRef = mStorageReference.getReference("Add Job Requests docs");
@@ -94,26 +97,33 @@ public class post_activity extends AppCompatActivity {
         name=(EditText)findViewById(R.id.name);
         email=(EditText)findViewById(R.id.email);
         contactNo=(EditText)findViewById(R.id.contactNo);
+        applicationFormTitle=(TextView)findViewById(R.id.applicationFormTitle);
+        postActivityButtonText=(TextView)findViewById(R.id.postActivityButtonText);
+
+        textRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String data = dataSnapshot.child("Post Activity Form Title").getValue(String.class);
+                String data1 = dataSnapshot.child("Post Activity Form Button Text").getValue(String.class);
+                applicationFormTitle.setText(data);
+                postActivityButtonText.setText(data1);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
 
         submit=(ImageButton)findViewById(R.id.submit);
+        applicationFormTitle=(TextView)findViewById(R.id.applicationFormTitle);
 
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference().child(ID);
 
         spinner();
-        categorySelection.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(),categorySelection.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(getApplicationContext(),"Nothing Selected!",Toast.LENGTH_SHORT).show();
-            }
-        });
 
         add_file_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,7 +169,7 @@ public class post_activity extends AppCompatActivity {
 
                             }
                             afterSelection(arrayUri,singleUri);
-//                            Toast.makeText(getApplicationContext(),arrayUri[3].toString(),Toast.LENGTH_SHORT).show();
+
                         }else{
 
                             // Getting the URI of the selected file and logging into logcat at debug level
@@ -176,7 +186,7 @@ public class post_activity extends AppCompatActivity {
     }
 
     private void afterSelection(Uri[] arrayUri,Uri singleUri) {
-//        Toast.makeText(getApplicationContext(),uri.toString(),Toast.LENGTH_SHORT).show();
+
         Uri _singleUri = singleUri;
         if (singleUri!=null){
             addedFileName.setText(getFileNameByUri(this,singleUri));
@@ -199,7 +209,7 @@ public class post_activity extends AppCompatActivity {
 
             }
 
-            Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT).show();
+
             addedFileName.setText(name);
         }
 
@@ -325,14 +335,14 @@ public class post_activity extends AppCompatActivity {
                             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                 @Override
                                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                                Toast.makeText(getApplicationContext(),"Uploaded Successful.",Toast.LENGTH_SHORT).show();
+
 
                                     _docRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                             Log.e("Tuts+", "uri: " + uri.toString());
                                             //Handle whatever you're going to do with the URL here
-                                            Toast.makeText(getApplicationContext(),uri.toString(),Toast.LENGTH_SHORT).show();
+
                                             ref.child(key).child("images/1").setValue(uri.toString());
                                         }
                                     });
@@ -362,7 +372,6 @@ public class post_activity extends AppCompatActivity {
                                             public void onSuccess(Uri uri) {
                                                 Log.e("Tuts+", "uri: " + uri.toString());
                                                 //Handle whatever you're going to do with the URL here
-                                                Toast.makeText(getApplicationContext(),uri.toString(),Toast.LENGTH_SHORT).show();
                                                 ref.child(key).child("images/"+ (finalI+1)).setValue(uri.toString());
                                             }
                                         });

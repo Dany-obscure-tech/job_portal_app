@@ -48,7 +48,6 @@ public class FirstActivityAdapter extends RecyclerView.Adapter<FirstActivityAdap
         viewHolder.jobCategoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,ID,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, SecondActivity.class);
                 intent.putExtra("Selected Job Category",ID);
                 intent.putExtra("Title",TITLE);

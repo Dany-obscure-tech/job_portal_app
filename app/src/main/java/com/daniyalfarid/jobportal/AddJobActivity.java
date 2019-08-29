@@ -43,7 +43,7 @@ public class AddJobActivity extends AppCompatActivity {
     ImageButton addFileBtn,applicationFormSubmit;
     Context context = this;
     TextView addedFileName;
-    TextView addJobTitle;
+    TextView addJobTitle,addJobButtonText;
     private static final int READ_REQUEST_CODE = 42;
     private Uri docUri = null;
 
@@ -64,6 +64,7 @@ public class AddJobActivity extends AppCompatActivity {
 
         /////////
         addJobTitle = (TextView)findViewById(R.id.addJobTitle);
+        addJobButtonText = (TextView)findViewById(R.id.addJobButtonText);
         addJobFormName=(EditText)findViewById(R.id.addJobFormName);
         applicationFormSubmit = (ImageButton)findViewById(R.id.applicationFormSubmit);
         addJobFormcontactNo=(EditText)findViewById(R.id.addJobFormcontactNo);
@@ -78,7 +79,9 @@ public class AddJobActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String data = dataSnapshot.child("Add Job Title").getValue(String.class);
+                String data1 = dataSnapshot.child("Add Job Button Text").getValue(String.class);
                 addJobTitle.setText(data);
+                addJobButtonText.setText(data1);
 
             }
 
@@ -167,6 +170,7 @@ public class AddJobActivity extends AppCompatActivity {
         }
 
         if (docUri == null){
+            addedFileName.setError("Please upload A file");
             Toast.makeText(getApplicationContext(),"Please upload a document",Toast.LENGTH_LONG).show();
             valid=false;
         }
@@ -212,32 +216,38 @@ public class AddJobActivity extends AppCompatActivity {
                 afterSelection(uri);
             }
         }
+        else{
+            docUri = null;
+            afterSelection(null);
+        }
     }
 
     private void afterSelection(Uri uri) {
-        String result = null;
-        if (uri.getScheme().equals("content")) {
-            Cursor cursor = getContentResolver().query(uri, null, null, null, null);
-            try {
-                if (cursor != null && cursor.moveToFirst()) {
-                    result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+        if (uri == null){
+            addedFileName.setText("No File selected");
+        }else {
+            String result = null;
+            if (uri.getScheme().equals("content")) {
+                Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+                try {
+                    if (cursor != null && cursor.moveToFirst()) {
+                        result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                    }
+                } finally {
+                    cursor.close();
                 }
-            } finally {
-                cursor.close();
             }
-        }
-        if (result == null) {
-            result = uri.getPath();
-            int cut = result.lastIndexOf('/');
-            if (cut != -1) {
-                result = result.substring(cut + 1);
+            if (result == null) {
+                result = uri.getPath();
+                int cut = result.lastIndexOf('/');
+                if (cut != -1) {
+                    result = result.substring(cut + 1);
+                }
             }
+
+
+            addedFileName.setText(result);
         }
-
-
-        addedFileName.setText(result);
-
-
 
 
     }

@@ -47,10 +47,10 @@
         android:background="@drawable/addyourjob_button"
         />
 
-        <com.daniyalfarid.jobportal.Fonts.SegoeUI
+        <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
             android:id="@+id/buttonText"
             android:layout_centerInParent="true"
-            android:textSize="19sp"
+            android:textSize="16sp"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -74,11 +74,10 @@
             android:background="@drawable/addyourjob_button"
             />
 
-        <com.daniyalfarid.jobportal.Fonts.SegoeUI
+        <com.daniyalfarid.jobportal.Fonts.SegoeUIBold
             android:id="@+id/postJobButtonText"
             android:layout_centerInParent="true"
-            android:textSize="19sp"
-            android:text="Post Job"
+            android:textSize="16sp"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

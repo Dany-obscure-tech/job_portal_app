@@ -22,18 +22,18 @@
     <string name="contact_no">Enter your contact no</string>
     <string name="email">Enter your email</string>
     <string name="description">Enter your description</string>
-    <string name="attach_file">Add Image/s</string>
+    <string name="attach_file">ADD IMAGE/S</string>
     <string name="file_name">(Image/s name).......</string>
-    <string name="title">Title</string>
-    <string name="Description">Description</string>
-    <string name="email_1">Email</string>
-    <string name="category">Category</string>
+    <string name="title">TITLE</string>
+    <string name="Description">DESCRIPTION</string>
+    <string name="email_1">EMAIL</string>
+    <string name="category">CATEGORY</string>
     <string name="enter_your_email_address">Enter your email address</string>
     <string name="enter_your_name">Enter your name</string>
     <string name="enter_your_full_description">Enter your full description</string>
-    <string name="full_description">Full-Description</string>
-    <string name="post_job">Post Job</string>
+    <string name="full_description">FULL-DESCRIPTION</string>
     <string name="enter_your_job_post_title">Enter your job post title</string>
-    <string name="name_1">Name</string>
+    <string name="name_1">NAME</string>
     <string name="enter_your_contact_no">Enter your contact no</string>
+    <string name="post_job_contact_no">CONTACT NO</string>
 </resources>
