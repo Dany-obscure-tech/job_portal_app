@@ -22,8 +22,8 @@
     <string name="contact_no">Enter your contact no</string>
     <string name="email">Enter your email</string>
     <string name="description">Enter your description</string>
-    <string name="attach_file">ADD IMAGE/S</string>
-    <string name="file_name">(Image/s name).......</string>
+    <string name="attach_file">ATTACH FILE</string>
+    <string name="file_name">(File name).......</string>
     <string name="title">TITLE</string>
     <string name="Description">DESCRIPTION</string>
     <string name="email_1">EMAIL</string>
@@ -36,4 +36,6 @@
     <string name="name_1">NAME</string>
     <string name="enter_your_contact_no">Enter your contact no</string>
     <string name="post_job_contact_no">CONTACT NO</string>
+    <string name="attach_images">ATTACH IMAGE/S</string>
+    <string name="Images_name">(Image/s name).......</string>
 </resources>

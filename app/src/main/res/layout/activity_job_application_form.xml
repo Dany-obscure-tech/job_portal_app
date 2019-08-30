@@ -89,6 +89,7 @@
                 android:text="@string/enter_description" />
 
             <EditText
+                android:maxLength="500"
                 android:id="@+id/ApplicationFormDescription"
                 android:textColorHint="#9F9F9F"
                 android:hint="@string/description"

@@ -139,7 +139,7 @@ public class post_activity extends AppCompatActivity {
     public void performFileSearch() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        intent.setType("*/*");
+        intent.setType("image/*");
         startActivityForResult(intent, 1001);
     }
 
@@ -425,6 +425,7 @@ public class post_activity extends AppCompatActivity {
         }
         if (category1 =="-Select Category-"){
             ((TextView)categorySelection.getSelectedView()).setError("Please select a category");
+            Toast.makeText(getApplicationContext(),"Please select a category",Toast.LENGTH_SHORT).show();
             valid = false;
         }
         if (name1.isEmpty()){

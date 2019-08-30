@@ -170,9 +170,11 @@ public class AddJobActivity extends AppCompatActivity {
         }
 
         if (docUri == null){
-            addedFileName.setError("Please upload A file");
+            addedFileName.setError("");
             Toast.makeText(getApplicationContext(),"Please upload a document",Toast.LENGTH_LONG).show();
             valid=false;
+        }else {
+            addedFileName.setError(null);
         }
         return valid;
     }

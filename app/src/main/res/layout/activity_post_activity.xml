@@ -70,7 +70,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:maxLength="100"
+                android:maxLength="200"
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:maxLength="350"
+                android:maxLength="700"
                 android:id="@+id/full_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
                 android:textSize="18sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/attach_file" />
+                android:text="@string/attach_images" />
 
 
             <LinearLayout
@@ -159,7 +159,7 @@
                     android:textStyle="italic"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="@string/file_name"
+                    android:text="@string/Images_name"
                     android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
