@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         recyclerView = (RecyclerView)findViewById(R.id.jobCategoryList);
+
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("jobCategoryIcons");
